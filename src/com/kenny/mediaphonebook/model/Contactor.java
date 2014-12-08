@@ -1,6 +1,10 @@
 package com.kenny.mediaphonebook.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.R.integer;
 
 public class Contactor implements Serializable {
 
@@ -8,7 +12,7 @@ public class Contactor implements Serializable {
 
 	private int contactorId;
 	private String contactorName;
-	private int contactorNum;
+	private List<String> contactorNum = new ArrayList<String>();
 	private String contactorPhotoAddress;
 	private String contactorNameAudio;
 	private int contactorCatorgray;
@@ -29,12 +33,21 @@ public class Contactor implements Serializable {
 		this.contactorName = _contactorName;
 	}
 
-	public int getContactorNum() {
+	public List<String> getContactorNum() {
 		return contactorNum;
 	}
 
-	public void setContactorNum(int contactorNum) {
-		this.contactorNum = contactorNum;
+	public void addContactorNum(String _contactorNum) {
+		/*Boolean isExist = false;
+		for(int index=0; index<contactorNum.size();index++){
+			if(String.valueOf(contactorNum.indexOf(index)) == _contactorNum){
+				isExist = true;
+				break;
+			}
+		}*/
+		//if(isExist){
+			contactorNum.add(_contactorNum);
+		//}
 	}
 
 	public String getContactorPhotoAddress() {
