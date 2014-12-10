@@ -7,6 +7,7 @@ import java.util.List;
 import com.kenny.mediaphonebook.lib.SysContactors;
 import com.kenny.mediaphonebook.model.Contactor;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -59,15 +60,17 @@ public class ContactorListActivity extends Activity {
 		list.setAdapter(mSchedule);
 		list.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int index, long arg3) {
 				//获得选中项的HashMap对象   
-				//Contactor selected = contactors.indexOf(arg2);
-                //HashMap<String,String> map=(HashMap<String,String>)list.getItemAtPosition(arg2);   
-                //String title=map.get("ItemTitle"); 
-				//Log.d("",title);
-				//Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel://" + .getContactorNum().indexOf(0)      ));
-				//startActivity(intent);
-				Log.d("",String.valueOf(arg3));
+				Contactor selected = contactors.get(index);
+				
+				Bundle selectedContactor = new Bundle();
+				selectedContactor.putSerializable("contactorInfo", selected);
+				
+				Intent intent = new Intent(ContactorListActivity.this, ContactorActivity.class);
+				intent.putExtra("selectedContactor", selectedContactor);
+				
+				startActivity(intent);
 			}
 		});
 		

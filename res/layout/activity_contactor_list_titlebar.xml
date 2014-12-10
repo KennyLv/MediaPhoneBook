@@ -16,8 +16,11 @@
     <TextView   
         android:layout_width="wrap_content"  
         android:layout_height="wrap_content"  
-        android:layout_centerInParent="true"  
-        android:text="标题栏" />  
+        android:layout_centerInParent="true"
+        android:fontFamily="Corbel"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:text="Contactors" />  
   
     <ImageButton  
         android:id="@+id/imageButton1"  
